@@ -72,9 +72,10 @@ try {
 $installerFolder = Get-ChildItem -Path "$env:TEMP\$fileName" -Directory
 $installerFile = Get-ChildItem -Path "$($installerFolder.FullName)\ZnCloudConnectorSetup-x64.exe"
 
-$process = Start-Process -FilePath $installerFile.FullName -NoNewWindow -PassThru -Wait -ArgumentList $installerArgs
-if ($process.ExitCode -ne 0) {
-    Write-Host "Installation failed with exit code $($process.ExitCode)"
+try {
+    Start-Process -FilePath $installerFile.FullName -NoNewWindow -PassThru -Wait -ArgumentList $installerArgs
+} catch {
+    Write-Host "Failed to run install."
     exit
 }
 
