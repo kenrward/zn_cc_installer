@@ -17,7 +17,7 @@ param (
     $CloudConnectorToken = "",
 
     # Cloud Connector Source
-    [ValidateSet("AD", "WORKGROUP", "AZURE", "AZURE_AD", "AWS", "GCP")]
+    [ValidateSet("AD", "WORKGROUP", "AZURE", "AZURE_AD", "AWS", "GCP", "IBM","ORACLE","VMWARE","ALIBABA","OVH","LUMEN")]
     [Parameter(Position = 3)]
     [string]
     $CloudConnectorSource = "AD"
